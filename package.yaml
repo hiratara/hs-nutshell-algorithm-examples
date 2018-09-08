@@ -13,9 +13,12 @@ extra-source-files:
 
 dependencies:
   - base >= 4.7 && < 5
-  - criterion
-  - mwc-random
   - containers
+  - criterion
+  - data-default-class
+  - mwc-random
+  - Chart
+  - Chart-diagrams
 
 executables:
   hs-nutshell-algorithms:

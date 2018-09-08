@@ -39,6 +39,10 @@ packages:
 # using the same syntax as the packages field.
 # (e.g., acme-missiles-0.3)
 # extra-deps: []
+extra-deps:
+  - Chart-1.9
+  - Chart-diagrams-1.9
+  - SVGFonts-1.6.0.3
 
 # Override default flag values for local packages and extra-deps
 # flags: {}
