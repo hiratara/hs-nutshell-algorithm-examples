@@ -48,7 +48,8 @@ slowHull ps0 =
       (x1 - x3) * (y2 - y3) - (x2 - x3) * (y1 - y3)
     degree :: Point -> Point -> Double
     degree (Point x0 y0) (Point x1 y1) =
-      y1 - y0 / sqrt ((x1 - x0) ^ 2 + (y1 - y0) ^ 2)
+      let len = sqrt ((x1 - x0) ^ 2 + (y1 - y0) ^ 2)
+      in (y1 - y0) / len
 
 main :: IO ()
 main = do
