@@ -1,0 +1,23 @@
+name:                hs-nutshell-algorithms
+version:             0.1.0.0
+#synopsis:
+#description:
+homepage:            https://github.com/hiratara/hs-nutshell-algorithms#readme
+license:             BSD3
+author:              Masahiro Honma
+maintainer:          hiratara@cpan.org
+copyright:           hiratara
+category:            Web
+extra-source-files:
+- README.md
+
+dependencies:
+  - base >= 4.7 && < 5
+  - criterion
+  - mwc-random
+  - containers
+
+executables:
+  hs-nutshell-algorithms:
+    source-dirs:      src
+    main:             Main.hs
