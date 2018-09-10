@@ -13,14 +13,20 @@ extra-source-files:
 
 dependencies:
   - base >= 4.7 && < 5
-  - containers
-  - criterion
-  - data-default-class
-  - mwc-random
-  - Chart
-  - Chart-diagrams
+
+library:
+  source-dirs: src
+  dependencies:
+    - containers
+    - mwc-random
 
 executables:
-  hs-nutshell-algorithms:
-    source-dirs:      src
-    main:             Main.hs
+  run-slowhull:
+    source-dirs:      app
+    main:             run-slowhull.hs
+    dependencies:
+      - containers
+      - data-default-class
+      - hs-nutshell-algorithms
+      - Chart
+      - Chart-diagrams
