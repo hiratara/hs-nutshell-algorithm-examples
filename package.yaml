@@ -21,9 +21,9 @@ library:
     - mwc-random
 
 executables:
-  run-slowhull:
+  run-convexhull:
     source-dirs:      app
-    main:             run-slowhull.hs
+    main:             run-convexhull.hs
     dependencies:
       - containers
       - data-default-class

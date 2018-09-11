@@ -8,14 +8,20 @@ import Examples.Nutshell.ConvexHull
   )
 import qualified Graphics.Rendering.Chart.Backend.Diagrams as Diagrams
 import qualified Graphics.Rendering.Chart.Easy as Chart
+import System.Environment (getArgs)
+
+impl :: Maybe String -> (Set.Set Point -> [Point])
+impl _ = slowHull
 
 main :: IO ()
 main = do
+  argv <- getArgs
   ps <- randomPoints
   putStrLn "points generated"
   print ps
   putStrLn "convex hull"
-  let hull = slowHull ps
+  let convexHull = impl (case argv of [] -> Nothing; _ -> Just $ head argv)
+      hull = convexHull ps
   print hull
 
   let pslist = map (\(Point x y) -> (x, y)) . Set.toList $ ps
