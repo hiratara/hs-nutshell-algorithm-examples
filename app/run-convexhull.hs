@@ -4,6 +4,7 @@ import qualified Data.Set as Set
 import Examples.Nutshell.ConvexHull
   ( randomPoints
   , slowHull
+  , greedyHull
   , Point(..)
   )
 import qualified Graphics.Rendering.Chart.Backend.Diagrams as Diagrams
@@ -11,6 +12,8 @@ import qualified Graphics.Rendering.Chart.Easy as Chart
 import System.Environment (getArgs)
 
 impl :: Maybe String -> (Set.Set Point -> [Point])
+impl (Just "greedy") = greedyHull
+impl (Just "slow") = slowHull
 impl _ = slowHull
 
 main :: IO ()
