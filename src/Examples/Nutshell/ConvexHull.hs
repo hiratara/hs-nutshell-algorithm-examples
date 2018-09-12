@@ -5,6 +5,7 @@ module Examples.Nutshell.ConvexHull
   , greedyHull
   , Point(..)
   ) where
+import Control.DeepSeq (NFData(..), deepseq)
 import Control.Monad (guard)
 import qualified Data.List as List
 import Data.List ((\\), sortOn, uncons)
@@ -13,6 +14,9 @@ import qualified Data.Set as Set
 import qualified System.Random.MWC as MWC
 
 data Point = Point !Double !Double deriving (Eq, Ord, Show)
+
+instance NFData Point where
+  rnf (Point x y) = x `deepseq` y `deepseq` ()
 
 toTuple :: Point -> (Double, Double)
 toTuple (Point x y) = (x, y)

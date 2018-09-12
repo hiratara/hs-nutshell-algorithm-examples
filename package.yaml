@@ -18,6 +18,7 @@ library:
   source-dirs: src
   dependencies:
     - containers
+    - deepseq
     - mwc-random
 
 executables:
@@ -25,8 +26,15 @@ executables:
     source-dirs:      app
     main:             run-convexhull.hs
     dependencies:
+      - hs-nutshell-algorithms
       - containers
       - data-default-class
-      - hs-nutshell-algorithms
       - Chart
       - Chart-diagrams
+  bench-convexhulls:
+    source-dirs:      app
+    main:             bench-convexhulls.hs
+    dependencies:
+      - hs-nutshell-algorithms
+      - containers
+      - criterion
