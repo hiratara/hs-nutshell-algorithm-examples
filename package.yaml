@@ -38,3 +38,11 @@ executables:
       - hs-nutshell-algorithms
       - containers
       - criterion
+  add-java:
+    source-dirs:      app
+    main:             add-java.hs
+    dependencies:
+      - criterion
+      - inline-java
+      - jvm
+      - vector

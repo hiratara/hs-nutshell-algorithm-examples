@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e49c5ca7c4db5a2793647b0cac9e008bb5cd527b79f6f568ed94aa2ec950102b
+-- hash: f81f8fdfec43556c82e0e98b04f5e831096c3fd7c42e57a9db13d6bff7cb1f47
 
 name:           hs-nutshell-algorithms
 version:        0.1.0.0
@@ -30,6 +30,20 @@ library
     , containers
     , deepseq
     , mwc-random
+  default-language: Haskell2010
+
+executable add-java
+  main-is: add-java.hs
+  other-modules:
+      Paths_hs_nutshell_algorithms
+  hs-source-dirs:
+      app
+  build-depends:
+      base >=4.7 && <5
+    , criterion
+    , inline-java
+    , jvm
+    , vector
   default-language: Haskell2010
 
 executable bench-convexhulls
