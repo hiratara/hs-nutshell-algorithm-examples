@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: f81f8fdfec43556c82e0e98b04f5e831096c3fd7c42e57a9db13d6bff7cb1f47
+-- hash: 2d08047af44c11bdcec7eecca8fd1a8042719fcf864261031f5ab9fc987145e6
 
 name:           hs-nutshell-algorithms
 version:        0.1.0.0
@@ -43,6 +43,7 @@ executable add-java
     , criterion
     , inline-java
     , jvm
+    , mwc-random
     , vector
   default-language: Haskell2010
 

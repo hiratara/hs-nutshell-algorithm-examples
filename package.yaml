@@ -43,6 +43,7 @@ executables:
     main:             add-java.hs
     dependencies:
       - criterion
+      - mwc-random
       - inline-java
       - jvm
       - vector

@@ -7,6 +7,12 @@ import Data.Vector.Storable (fromList, toList, thaw, freeze)
 import Data.Vector.Storable.Mutable (IOVector)
 import Language.Java (withJVM, reflect, reify, JType(..), J)
 import Language.Java.Inline
+import qualified System.Random.MWC as MWC
+
+randomNum :: Int -> IO (IOVector Int32)
+randomNum n = MWC.withSystemRandom . MWC.asGenIO $ \gen -> do
+  let ps = map (\_ -> MWC.uniformR (0, 9) gen) [1 .. n] :: [IO Int32]
+  fromList <$> sequence ps >>= thaw
 
 javaAdd :: J ('Array ('Prim "int")) -> J ('Array ('Prim "int")) -> IO (J ('Array ('Prim "int")))
 javaAdd jn1 jn2 = do
@@ -46,8 +52,8 @@ javaAdd' n1 n2 = do
 
 main :: IO ()
 main = do
-  n1 <- thaw $ fromList [0, 1..9]
-  n2 <- thaw $ fromList $ 0 : [9, 8..1]
+  n1 <- randomNum 256
+  n2 <- randomNum 256
   withJVM [] $ do
     jn1 <- reflect (n1 :: IOVector Int32)
     jn2 <- reflect (n2 :: IOVector Int32)
